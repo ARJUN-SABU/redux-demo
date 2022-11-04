@@ -1,5 +1,5 @@
 const redux = require("redux");
-const createStore = redux.createStore();
+const createStore = redux.createStore;
 
 const initialState = {
   numberOfCakes: 10,
@@ -7,6 +7,8 @@ const initialState = {
 
 //action string
 const CAKE_ORDERED = "CAKE_ORDERED";
+const CAKE_ADDED = "CAKE_ADDED";
+
 //action creator
 function orderCake() {
   return {
@@ -19,12 +21,29 @@ function orderCake() {
   };
 }
 
+function addCake(quantity = 1) {
+  return {
+    type: CAKE_ADDED,
+
+    //any extra field in the action object
+    //is called payload in redux.
+    payload: quantity,
+  };
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CAKE_ORDERED: {
       return {
         ...state,
         numberOfCakes: state.numberOfCakes - 1,
+      };
+    }
+
+    case CAKE_ADDED: {
+      return {
+        ...state,
+        numberOfCakes: state.numberOfCakes + action.payload,
       };
     }
 
@@ -49,5 +68,8 @@ const unsubscribe = store.subscribe(() => {
 store.dispatch(orderCake());
 store.dispatch(orderCake());
 store.dispatch(orderCake());
+store.dispatch(addCake(2));
+store.dispatch(addCake(10));
 
+//remove the listeners.
 unsubscribe();
