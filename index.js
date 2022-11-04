@@ -1,7 +1,12 @@
 const redux = require("redux");
 const createStore = redux.createStore;
 
+const initialState = {
+  numOfCakes: 10,
+};
+
 const CAKE_ORDERED = "CAKE_ORDERED";
+const CAKE_ADDED = "CAKE_ADDED";
 
 function orderCake() {
   return {
@@ -10,9 +15,12 @@ function orderCake() {
   };
 }
 
-const initialState = {
-  numOfCakes: 10,
-};
+function addCake(quantity = 1) {
+  return {
+    type: CAKE_ADDED,
+    payload: quantity,
+  };
+}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +28,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         numOfCakes: state.numOfCakes - 1,
+      };
+    }
+    case CAKE_ADDED: {
+      return {
+        ...state,
+        numOfCakes: state.numOfCakes + action.payload,
       };
     }
     default:
@@ -37,6 +51,7 @@ const unsubscribe = store.subscribe(() => {
 store.dispatch(orderCake());
 store.dispatch(orderCake());
 store.dispatch(orderCake());
+store.dispatch(addCake(3));
 
 unsubscribe();
 
