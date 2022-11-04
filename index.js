@@ -1,5 +1,6 @@
 const redux = require("redux");
 const createStore = redux.createStore;
+// const bindActionCreators = redux.bindActionCreators;
 
 const initialState = {
   numOfCakes: 10,
@@ -8,6 +9,8 @@ const initialState = {
 const CAKE_ORDERED = "CAKE_ORDERED";
 const CAKE_ADDED = "CAKE_ADDED";
 
+//action creator functions and these
+//return an action object.
 function orderCake() {
   return {
     type: CAKE_ORDERED,
@@ -53,6 +56,12 @@ store.dispatch(orderCake());
 store.dispatch(orderCake());
 store.dispatch(addCake(3));
 
+// const actions = bindActionCreators({ orderCake, addCake }, store.dispatch);
+// actions.orderCake();
+// actions.orderCake();
+// actions.orderCake();
+// actions.addCake(100);
+
 unsubscribe();
 
-store.dispatch(orderCake());
+// store.dispatch(orderCake());
