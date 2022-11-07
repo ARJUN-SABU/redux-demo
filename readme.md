@@ -1,1 +1,1 @@
-<p>Added bindActionCreators to bind all the actions to store.dispatch</p>
+<p> Added Multiple Reducers </p>
