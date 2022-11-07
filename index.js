@@ -1,5 +1,6 @@
 const redux = require("redux");
 const createStore = redux.createStore;
+const bindActionCreators = redux.bindActionCreators;
 
 const initialState = {
   numberOfCakes: 10,
@@ -65,11 +66,20 @@ const unsubscribe = store.subscribe(() => {
   console.log("Updated State: ", store.getState());
 });
 
-store.dispatch(orderCake());
-store.dispatch(orderCake());
-store.dispatch(orderCake());
-store.dispatch(addCake(2));
-store.dispatch(addCake(10));
+// store.dispatch(orderCake());
+// store.dispatch(orderCake());
+// store.dispatch(orderCake());
+// store.dispatch(addCake(2));
+// store.dispatch(addCake(10));
+
+//bind or connect both the action creators to store.dispatch.
+const actions = bindActionCreators({ orderCake, addCake }, store.dispatch);
+actions.orderCake();
+actions.orderCake();
+actions.orderCake();
+actions.orderCake();
+actions.addCake(3);
+actions.addCake(10);
 
 //remove the listeners.
 unsubscribe();

@@ -1,1 +1,1 @@
-<p>Added Second Action addCake().</p>
+<p>Added bindActionCreators to bind all the actions to store.dispatch</p>
