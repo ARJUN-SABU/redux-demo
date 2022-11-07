@@ -2,6 +2,10 @@ const redux = require("redux");
 const createStore = redux.createStore;
 const bindActionCreators = redux.bindActionCreators;
 const combineReducers = redux.combineReducers;
+const applyMiddleware = redux.applyMiddleware;
+
+const reduxLogger = require("redux-logger");
+const logger = reduxLogger.createLogger();
 
 const initialCakeState = {
   numberOfCakes: 10,
@@ -108,15 +112,15 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 console.log("Initial State: ", store.getState());
 
-//add listeneres which are functions
-//which would get executed whenever
-//any change in the state happens.
-const unsubscribe = store.subscribe(() => {
-  console.log("Updated State: ", store.getState());
-});
+//comment out the listener because we already
+//have the logger middleware which will automatically
+//log the changes as the store gets updated.
+// const unsubscribe = store.subscribe(() => {
+//   console.log("Updated State: ", store.getState());
+// });
 
 // store.dispatch(orderCake());
 // store.dispatch(orderCake());
@@ -146,4 +150,4 @@ actions.addIceCream(3);
 actions.addIceCream(10);
 
 //remove the listeners.
-unsubscribe();
+// unsubscribe();
