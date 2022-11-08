@@ -70,7 +70,8 @@ const reducer = (state = initialState, action) => {
 //store's dispatch and getstate callbacks as arguments
 //(read more from the readme file) and can perform
 //asynchronous tasks inside it and can also dispatch
-//other actions inside of it. This type of action creator
+//other regular actions (i.e, regular action objects)
+//inside of it. This type of action creator
 //which returns a function itself is made possible by
 //redux-thunk library.
 function fetchUsers(url) {
