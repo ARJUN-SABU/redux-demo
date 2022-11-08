@@ -7,4 +7,4 @@
 <p>Read the paragraph under <b>Motivation</b> to understand about redux-thunk.</p>
 <a href="https://github.com/reduxjs/redux-thunk#motivation">How redux thunk works.</a>
 <p>Now read about what is <b>thunk</b>, just read the paragraph under What's a thunk?</p>
-<a herf="https://github.com/reduxjs/redux-thunk#whats-a-thunk">What's a Thunk?</a>
+<a href="https://github.com/reduxjs/redux-thunk#whats-a-thunk">What's a Thunk?</a>
