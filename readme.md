@@ -1,1 +1,4 @@
-Moved core redux code written so far into redux-core-demo folder and created a new folder redux-toolkit-demo to implement the redux-toolkit-code. Go inside redux-toolkit-demo folder and read the readme.md file.
+<p>Created a folder react-redux-toolkit-demo and initialised an empty react app into it and also placed app folder and feature folder into it.</p>
+
+<p>Followed video 25</p>
+<a href="https://www.youtube.com/watch?v=VfRGyfw7kGY">Video 25</p>
