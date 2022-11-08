@@ -33,7 +33,7 @@ module.exports.reducer = cakeSlice.reducer;
 //@reduxjs/toolkit automatically creates action
 //creators with the same name defined above
 //that is, 'ordered' and 'added'.
-module.exports.cakeActions = cakeSlice.actions;
+module.exports.actions = cakeSlice.actions;
 
 //Finally we export the reducer and the actions from
 //cakeSlice so that our store.js can import these and
