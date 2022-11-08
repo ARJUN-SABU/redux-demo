@@ -1,0 +1,1 @@
+Moved core redux code written so far into redux-core-demo folder and created a new folder redux-toolkit-demo to implement the redux-toolkit-code. Go inside redux-toolkit-demo folder and read the readme.md file.
