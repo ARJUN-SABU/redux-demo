@@ -1,3 +1,5 @@
+<p>Code for this lesson is present in the file <b>asyncActions.js</b> </p>
+
 <p>Learnt about Redux Thunk and async actions.</p>
 <p>First watch the videos 15 & 16 :</p>
 <a href="https://www.youtube.com/watch?v=uN-gpihDQRE&list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3&index=15">Video 15</a>
