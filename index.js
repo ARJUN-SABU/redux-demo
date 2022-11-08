@@ -29,6 +29,15 @@ const reducer = (state = initialState, action) => {
     }
 
     default:
+      //this default case is very important. As below
+      //when we call store.getState() to get the state
+      //of the store, the store comes inside this reducer
+      //and checks which action type the getState() matches
+      //with. It finds that it matches with none of the
+      //action types so, this default case is returned
+      //and we get the state object. If this default case
+      //is not set, we'll get undefined whenever we'll call
+      //store.getState().
       return state;
   }
 };
