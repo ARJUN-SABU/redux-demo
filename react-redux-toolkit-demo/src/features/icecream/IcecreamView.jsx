@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "./icecreamSlice";
 
 function IcecreamView() {
   const numOfIceCreams = useSelector((state) => {
@@ -6,11 +7,15 @@ function IcecreamView() {
     return state.icecream.numOfIceCreams;
   });
 
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h2>Number of ice creams: {numOfIceCreams}</h2>
-      <button>Order ice cream</button>
-      <button>Add ice creams</button>
+      <button onClick={() => dispatch(actions.ordered())}>
+        Order ice cream
+      </button>
+      <button onClick={() => dispatch(actions.added(5))}>Add ice creams</button>
     </div>
   );
 }
