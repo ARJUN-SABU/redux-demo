@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "./icecreamSlice";
 
 function IcecreamView() {
+  const [value, setValue] = useState(1);
+
   const numOfIceCreams = useSelector((state) => {
-    console.log(state.icecream);
+    // console.log(state.icecream);
     return state.icecream.numOfIceCreams;
   });
 
@@ -15,7 +19,16 @@ function IcecreamView() {
       <button onClick={() => dispatch(actions.ordered())}>
         Order ice cream
       </button>
-      <button onClick={() => dispatch(actions.added(5))}>Add ice creams</button>
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      ></input>
+      <button onClick={() => dispatch(actions.added(Number(value)))}>
+        Add ice creams
+      </button>
     </div>
   );
 }
